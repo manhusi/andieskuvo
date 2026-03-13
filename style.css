@@ -169,8 +169,8 @@ h1 {
 canvas {
     width: 100vw;
     height: 100vh;
-    object-fit: cover;
-    position: absolute; /* Fixre tesszük, de nem stickyre */
+    object-fit: contain; /* Mindenképp teljes terjedelemben látszódjon a videó, levágás nélkül */
+    position: absolute;
     top: 0;
     left: 0;
 }
@@ -237,4 +237,34 @@ canvas {
 .action-btn:hover {
     transform: translateX(-50%) translateY(-2px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* =========================================
+   MOBIL RAJZOLÁS ÉS ELRENDEZÉS
+========================================= */
+@media (max-width: 768px) {
+    .buttons-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        padding-bottom: 25px; /* A képernyő aljára toljuk */
+        z-index: 50;
+    }
+
+    .action-btn {
+        position: relative;
+        left: auto !important;
+        bottom: auto !important;
+        transform: none !important;
+        width: 80%;
+        max-width: 320px;
+        margin-bottom: 15px; /* Két gomb közötti tér */
+        padding: 15px 25px;
+        font-size: 0.9rem;
+    }
+    
+    .action-btn:hover {
+        transform: translateY(-2px) !important;
+    }
 }
