@@ -227,6 +227,7 @@ canvas {
 .action-btn:not(.outline) {
     right: 10%; /* Jobb alsó sarokban */
     left: auto;
+    background: rgba(139, 115, 85, 0.4); /* 40% opacitású arany háttér */
 }
 
 .action-btn:hover {
