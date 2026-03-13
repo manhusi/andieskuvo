@@ -177,13 +177,11 @@ canvas {
 
 .final-content {
     position: absolute;
-    bottom: 5%; /* Kicsivel a képernyő alja felett */
+    top: 0;
     left: 0;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: transparent;
+    height: 100vh;
+    pointer-events: none; /* Átengedjük a bökést a videóra */
     opacity: 0;
     transition: opacity 1.5s ease;
     z-index: 30;
@@ -191,51 +189,48 @@ canvas {
 
 .final-content.visible {
     opacity: 1;
-    pointer-events: auto;
 }
 
 .buttons-container {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     position: relative;
-    pointer-events: none; /* Átengedjük a kattintást máshova, csak a gombok lesznek kattinthatóak */
 }
-
-
 
 .action-btn {
     background: var(--primary-color);
     color: var(--bg-color);
     text-decoration: none;
-    padding: 12px 25px;
-    border-radius: 25px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 0.8rem;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
     font-weight: bold;
     transition: all 0.3s;
-    text-align: center;
-    min-width: 140px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5); /* Kiemelés, hogy olvasható legyen a képen */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5); /* Kiemelés */
     position: absolute;
-    bottom: 8%; /* Magasság a képernyő aljától */
-    transform: translateX(-50%);
-    pointer-events: auto; /* Ez teszi kattinthatóvá */
+    bottom: 15%; /* Magasság pontosan a képernyő 15%-ánál */
+    transform: none;
+    pointer-events: auto; /* A gombokat visszaállítjuk kattinthatóra */
 }
 
 .action-btn.outline {
     background: transparent;
     color: var(--primary-color);
-    border: 1px solid var(--primary-color);
-    left: 15%; /* Bal oldal "üres" sávja, 10-20% között */
+    border: 2px solid var(--primary-color);
+    left: 10%; /* Bal alsó sarokban */
 }
 
 .action-btn:not(.outline) {
-    left: 85%; /* Jobb oldal "üres" sávja, 80-90% között */
+    right: 10%; /* Jobb alsó sarokban */
+    left: auto;
 }
 
 .action-btn:hover {
-    transform: translateX(-50%) translateY(-2px);
+    transform: scale(1.1);
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
@@ -244,43 +239,20 @@ canvas {
 ========================================= */
 @media (max-width: 768px) {
     #animation-screen {
-        height: 120vh; /* Kicsit megnyújtjuk, hogy biztosan lehessen görgetni */
+        height: 100vh; /* Visszaállítjuk, a kerek gomboknak nem kell pörgetni a lapot */
     }
 
     canvas {
-        object-position: top center;
-        height: 80vh !important; /* Teljes képernyő (100vh) helyett csak 80%-ra tesszük, így kisebb lesz a felbontás és sok hely marad alul */
-    }
-
-    .final-content {
-        bottom: auto;
-        top: 80vh; /* Pontosan az összement videó alá kerül */
-        height: auto;
-        padding-top: 15px;
-    }
-
-    .buttons-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        height: auto;
-        z-index: 50;
-    }
-
-    .action-btn {
-        position: relative;
-        left: auto !important;
-        bottom: auto !important;
-        transform: none !important;
-        width: 80%;
-        max-width: 320px;
-        margin-bottom: 15px; /* Két gomb közötti tér */
-        padding: 15px 25px;
-        font-size: 0.9rem;
+        object-position: center;
+        height: 100vh !important; /* Levágás nélkül visszaállítjuk */
+        object-fit: contain !important; /* Teljes kitöltés mobilra is */
     }
     
-    .action-btn:hover {
-        transform: translateY(-2px) !important;
+    .action-btn.outline {
+        left: 8%; /* Mobilon picit kijjebb tolhatjuk őket a szélére */
+    }
+
+    .action-btn:not(.outline) {
+        right: 8%; /* Mobilon picit kijjebb tolhatjuk */
     }
 }
