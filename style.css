@@ -248,6 +248,10 @@ canvas {
         object-fit: contain !important; /* Teljes kitöltés mobilra is */
     }
     
+    .action-btn {
+        bottom: 22%; /* Telefonon magasabban lesznek a gombok (alapból 15%-on vannak) */
+    }
+    
     .action-btn.outline {
         left: 8%; /* Mobilon picit kijjebb tolhatjuk őket a szélére */
     }
