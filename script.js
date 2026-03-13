@@ -123,6 +123,9 @@ function playAnimation() {
                 const finalContent = document.getElementById('final-content');
                 finalContent.classList.remove('hidden');
                 finalContent.classList.add('visible');
+                
+                // Visszaállítjuk a görgetést (a mobil nézetnél nagyon hasznos!)
+                document.body.style.overflow = 'auto';
             }
         }
     }

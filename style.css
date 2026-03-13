@@ -243,16 +243,28 @@ canvas {
    MOBIL RAJZOLÁS ÉS ELRENDEZÉS
 ========================================= */
 @media (max-width: 768px) {
+    #animation-screen {
+        height: 120vh; /* Kicsit megnyújtjuk, hogy biztosan lehessen görgetni */
+    }
+
     canvas {
-        object-position: top center; /* A videót a képernyő legtetejéhez igazítja, így alul marad az üres fekete sáv */
+        object-position: top center;
+        height: 80vh !important; /* Teljes képernyő (100vh) helyett csak 80%-ra tesszük, így kisebb lesz a felbontás és sok hely marad alul */
+    }
+
+    .final-content {
+        bottom: auto;
+        top: 80vh; /* Pontosan az összement videó alá kerül */
+        height: auto;
+        padding-top: 15px;
     }
 
     .buttons-container {
         display: flex;
         flex-direction: column;
-        justify-content: flex-end;
+        justify-content: flex-start;
         align-items: center;
-        padding-bottom: 25px; /* A képernyő aljára toljuk */
+        height: auto;
         z-index: 50;
     }
 
