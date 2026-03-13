@@ -243,6 +243,10 @@ canvas {
    MOBIL RAJZOLÁS ÉS ELRENDEZÉS
 ========================================= */
 @media (max-width: 768px) {
+    canvas {
+        object-position: top center; /* A videót a képernyő legtetejéhez igazítja, így alul marad az üres fekete sáv */
+    }
+
     .buttons-container {
         display: flex;
         flex-direction: column;
