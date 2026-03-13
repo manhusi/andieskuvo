@@ -119,16 +119,10 @@ function playAnimation() {
                 // Elértünk az utolsó képkockához, VÉGE AZ ANIMÁCIÓNAK
                 cancelAnimationFrame(animationReq);
                 
-                // Megjelenítjük a görgetés indikátort
-                document.getElementById('scroll-indicator').classList.remove('hidden');
-                
                 // Amikor az animáció lefutott, visszahozzuk a "final-content" dobozt a gombokkal!
                 const finalContent = document.getElementById('final-content');
                 finalContent.classList.remove('hidden');
                 finalContent.classList.add('visible');
-                
-                // Engedélyezzük a görgetést (a body default overflow: hidden volt)
-                document.body.style.overflow = 'auto';
             }
         }
     }
