@@ -3,9 +3,9 @@ const isMobile = window.innerWidth <= 768;
 
 const config = isMobile ? {
     // Mobil (9:16) konfiguráció
-    frameCount: 120, // 86401 -> 86520
-    startFrame: 86401,
-    framePrefix: 'Untitled000',
+    frameCount: 121, // 86400 -> 86520
+    startFrame: 86400,
+    framePrefix: '916_2_000',
     frameExtension: '.webp',
     framesPath: './images916/',
     fps: 30
@@ -13,7 +13,7 @@ const config = isMobile ? {
     // Asztali (Széles) konfiguráció
     frameCount: 121, // 86400 -> 86520
     startFrame: 86400,
-    framePrefix: 'andiesk000',
+    framePrefix: '169_000',
     frameExtension: '.webp',
     framesPath: './images/',
     fps: 30
